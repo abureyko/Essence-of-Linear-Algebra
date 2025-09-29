@@ -1,9 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
 
-
-# Создадим два вектора в 2D пространстве
 v = np.array([3, 1])
 w = np.array([2, 2])
 
@@ -11,7 +8,6 @@ w = np.array([2, 2])
 dot_product = np.dot(v, w)
 print(f"Скалярное произведение v и w: {dot_product}")
 
-# Создадим фигуру с двумя субплогами
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
 
 # Субплот 1: Геометрическая интерпретация (Проекция)
