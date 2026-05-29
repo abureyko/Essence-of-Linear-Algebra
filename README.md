@@ -25,7 +25,7 @@
 |---|---|---|
 | 1 | `01_vector_operations.py` | Геометрическое сложение векторов |
 | 2 | `02_linear_span/linear_combinations.py` | Линейные комбинации векторов |
-| 2 | `02_linear_span/visualize_span.py` | Линейная оболочка и span |
+| 2 | `02_linear_span/visualize_span.py` | Линейная оболочка |
 | 3 | `03_linear_transformations.py` | Поворот, сдвиг, масштабирование |
 | 4 | `04_matrix_composition.py` | Композиция матриц и порядок преобразований |
 | 5 | `05_3D_transformations.py` | Трехмерные преобразования |
