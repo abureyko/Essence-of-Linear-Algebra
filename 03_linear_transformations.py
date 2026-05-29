@@ -1,12 +1,13 @@
 import numpy as np
 from matplotlib import pyplot as plt
+from plot_helpers import save_lesson_figure
 
 A_ROTATE = np.array([[0,-1], [1, 0]]) # Матрица поворота на 90 градусов против часовой
 A_SHEAR = np.array([[1, 0.5], [0,1]]) # Сдвиг 
 A_SCALE =  np.array([[2, 0], [0,0.5]]) # Растяжение
 
 # Преобразование базисных векторов i и j
-def demonstrate_linear_transformations(matrix: np.ndarray, title: str = "") -> None:
+def demonstrate_linear_transformations(matrix: np.ndarray, title: str = "", filename: str = "03_linear_transformations.png") -> None:
     fig, ax = plt.subplots(figsize=(6,6))
 
     i_hat = np.array([1,0])
@@ -65,6 +66,7 @@ def demonstrate_linear_transformations(matrix: np.ndarray, title: str = "") -> N
     ax.axvline(x=0, color='k', linestyle='-', alpha=0.3)
     ax.grid(True, alpha=0.3)
     ax.legend()
+    save_lesson_figure(fig, __file__, filename)
     plt.show()
 
 if __name__ == "__main__":
@@ -74,6 +76,11 @@ if __name__ == "__main__":
         "Растяжение/Сжатие": A_SCALE
     }
     
-    for name, matrix in matrices.items():
-        demonstrate_linear_transformations(matrix, name)
+    filenames = {
+        "Поворот на 90°": "03_rotation.png",
+        "Сдвиг": "03_shear.png",
+        "Растяжение/Сжатие": "03_scale.png",
+    }
 
+    for name, matrix in matrices.items():
+        demonstrate_linear_transformations(matrix, name, filenames[name])

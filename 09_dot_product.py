@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from plot_helpers import save_lesson_figure
 
 v = np.array([3, 1])
 w = np.array([2, 2])
@@ -67,4 +68,5 @@ ax2.plot([v[0], result_1d], [v[1], 0], 'k--', alpha=0.5)
 ax2.legend()
 
 plt.tight_layout()
+save_lesson_figure(fig, __file__, "09_dot_product.png")
 plt.show()

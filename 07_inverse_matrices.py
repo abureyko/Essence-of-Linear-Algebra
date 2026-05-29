@@ -1,8 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
+from plot_helpers import save_lesson_figure
 
-def visualize_matrix_properties(A, title=""):
+def visualize_matrix_properties(A, title="", filename="07_inverse_matrices.png"):
     """Визуализация свойств матрицы: ранг, ядро, пространство столбцов"""
     fig, axes = plt.subplots(2, 2, figsize=(12, 10))
     ax1, ax2, ax3, ax4 = axes.ravel()
@@ -21,6 +22,7 @@ def visualize_matrix_properties(A, title=""):
     
     plt.suptitle(f"{title}\nМатрица: {A[0]}, {A[1]} | Ранг: {np.linalg.matrix_rank(A)} | det: {np.linalg.det(A):.2f}")
     plt.tight_layout()
+    save_lesson_figure(fig, __file__, filename)
     plt.show()
 
 def plot_transformation(ax, A, title):
@@ -166,6 +168,13 @@ matrices = {
     "Сжатие (det=0.5)": np.array([[0.7, 0], [0, 0.7]]),
 }
 
-# Запуск визуализации
-for name, matrix in matrices.items():
-    visualize_matrix_properties(matrix, name)
+filenames = {
+    "Полный ранг (обратимая)": "07_full_rank_inverse.png",
+    "Вырожденная (ранг 1)": "07_singular_rank_1.png",
+    "Поворот (det=1)": "07_rotation_inverse.png",
+    "Сжатие (det=0.5)": "07_compression_inverse.png",
+}
+
+if __name__ == "__main__":
+    for name, matrix in matrices.items():
+        visualize_matrix_properties(matrix, name, filenames[name])

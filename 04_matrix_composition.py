@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from plot_helpers import save_lesson_figure
 
-def demonstrate_composition(matrix1: np.ndarray, matrix2: np.ndarray, title: str="") -> None:
+def demonstrate_composition(matrix1: np.ndarray, matrix2: np.ndarray, title: str="", filename: str = "04_matrix_composition.png") -> None:
     fig1,  (ax1, ax2, ax3) = plt.subplots(1,3,figsize=(15,5))
     point = np.array([1,2])
 
@@ -52,6 +53,7 @@ def demonstrate_composition(matrix1: np.ndarray, matrix2: np.ndarray, title: str
     
     plt.suptitle(f'Композиция преобразований: {title}', fontsize=14)
     plt.tight_layout()
+    save_lesson_figure(fig1, __file__, filename)
     plt.show()
 
     # Проверка, что результаты совпадают
@@ -69,10 +71,10 @@ if __name__ == "__main__":
     # Экспериментируем с разными комбинациями!
     
     print("ЭКСПЕРИМЕНТ 1: Сдвиг → Поворот")
-    demonstrate_composition(A_ROTATE, A_SHEAR, "Сдвиг → Поворот")
+    demonstrate_composition(A_ROTATE, A_SHEAR, "Сдвиг → Поворот", "04_shear_then_rotate.png")
     
     print("ЭКСПЕРИМЕНТ 2: Поворот → Сдвиг (обратный порядок!)")
-    demonstrate_composition(A_SHEAR, A_ROTATE, "Поворот → Сдвиг")
+    demonstrate_composition(A_SHEAR, A_ROTATE, "Поворот → Сдвиг", "04_rotate_then_shear.png")
     
     print("ЭКСПЕРИМЕНТ 3: Растяжение → Сдвиг")
-    demonstrate_composition(A_SHEAR, A_SCALE, "Растяжение → Сдвиг")
+    demonstrate_composition(A_SHEAR, A_SCALE, "Растяжение → Сдвиг", "04_scale_then_shear.png")

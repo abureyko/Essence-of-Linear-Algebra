@@ -1,5 +1,6 @@
 # Импортируем необходимый модуль и обычно называют его plt для удобства
 import matplotlib.pyplot as plt
+from plot_helpers import save_lesson_figure
 
 # Создаем фигуру и оси (axis). fig - это все изображение, ax - область для построения графиков.
 # figsize=(6, 6) задает размер области в дюймах (квадратная 6x6).
@@ -65,6 +66,8 @@ ax.set_aspect('equal')
 
 # Добавляем заголовок
 ax.set_title("Геометрическая интерпретация сложения векторов")
+
+save_lesson_figure(fig, __file__, "01_vector_operations.png")
 
 # Команда, которая отображает весь наш построенный график
 plt.show()

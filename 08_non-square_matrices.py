@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+from plot_helpers import save_lesson_figure
 
 def visualize_non_square_transformations():
     """Визуализация преобразований между разными размерностями"""
@@ -64,6 +65,7 @@ def visualize_non_square_transformations():
 
 
     plt.tight_layout()
+    save_lesson_figure(fig, __file__, "08_non_square_matrices.png")
     plt.show()
 
     # Вывод свойств матриц
@@ -74,4 +76,5 @@ def visualize_non_square_transformations():
     print("Ранг:", np.linalg.matrix_rank(A_2d_to_3d)) 
     print("Форма:", A_2d_to_3d.shape)
 
-visualize_non_square_transformations()
+if __name__ == "__main__":
+    visualize_non_square_transformations()

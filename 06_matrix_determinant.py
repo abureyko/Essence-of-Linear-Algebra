@@ -1,7 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from plot_helpers import save_lesson_figure
 
-def demonstrate_determinant(matrix : np.ndarray, title:str = ""):
+def demonstrate_determinant(matrix : np.ndarray, title:str = "", filename: str = "06_matrix_determinant.png"):
     fig, (ax1, ax2) = plt.subplots(1,2, figsize=(10,4))
 
      # Исходный единичный квадрат
@@ -30,6 +31,7 @@ def demonstrate_determinant(matrix : np.ndarray, title:str = ""):
     ax2.grid(True)
     
     plt.suptitle(f'{title}\nМатрица: {matrix[0]}, {matrix[1]}')
+    save_lesson_figure(fig, __file__, filename)
     plt.show()
 
 if __name__ == '__main__':
@@ -42,5 +44,13 @@ if __name__ == '__main__':
         "Вырожденная": np.array([[1, 2], [2, 4]])  # det = 0
     }
 
+    filenames = {
+        "Растяжение 2x": "06_det_scale_2x.png",
+        "Сжатие по Y": "06_det_compress_y.png",
+        "Поворот 45°": "06_det_rotation.png",
+        "Сдвиг": "06_det_shear.png",
+        "Вырожденная": "06_det_singular.png",
+    }
+
     for name, matrix in matrices.items():
-        demonstrate_determinant(matrix, name)
+        demonstrate_determinant(matrix, name, filenames[name])

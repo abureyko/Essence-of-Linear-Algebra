@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from plot_helpers import save_lesson_figure
 
 def cramer_visualization():
     # Система уравнений: 2x + 3y = 8; 4x + 1y = 6
@@ -52,9 +53,11 @@ def cramer_visualization():
     ax3.set_title(f'Для y: заменяем v2 на b\ndet(A_y) = {det_A_y:.1f}')
     
     plt.tight_layout()
+    save_lesson_figure(fig, __file__, "12_cramers_rule.png")
     plt.show()
     
     print(f"Решение: x = {x:.1f}, y = {y:.1f}")
     print(f"Проверка: 2*{x:.1f} + 3*{y:.1f} = {2*x + 3*y:.1f}")
 
-cramer_visualization()
+if __name__ == "__main__":
+    cramer_visualization()

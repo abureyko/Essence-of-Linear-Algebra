@@ -1,8 +1,9 @@
 import numpy as np 
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+from plot_helpers import save_lesson_figure
 
-def demonstrate_3d_transformation(matrix_3x3: np.ndarray, title: str= ""):
+def demonstrate_3d_transformation(matrix_3x3: np.ndarray, title: str= "", filename: str = "05_3d_transformations.png"):
     fig = plt.figure(figsize=(10,5))
 
     ax1 = fig.add_subplot(121, projection='3d')
@@ -12,6 +13,7 @@ def demonstrate_3d_transformation(matrix_3x3: np.ndarray, title: str= ""):
     plot_cube(ax2, matrix_3x3, f'После преобразования: {title}')
 
     plt.tight_layout()
+    save_lesson_figure(fig, __file__, filename)
     plt.show()
 
 def plot_cube(ax, transformation_matrix, title):
@@ -72,7 +74,6 @@ def scale_3d(sx, sy, sz):
     ])
 
 if __name__ == '__main__':
-    demonstrate_3d_transformation(rotation_x(np.pi/4), 'Поворот вокруг X на 45°')
-    demonstrate_3d_transformation(rotation_y(np.pi/3), 'Поворот вокруг Y на 60°')
-    demonstrate_3d_transformation(scale_3d(1.5, 0.5, 2), 'Масштабирование')
-
+    demonstrate_3d_transformation(rotation_x(np.pi/4), 'Поворот вокруг X на 45°', "05_rotation_x.png")
+    demonstrate_3d_transformation(rotation_y(np.pi/3), 'Поворот вокруг Y на 60°', "05_rotation_y.png")
+    demonstrate_3d_transformation(scale_3d(1.5, 0.5, 2), 'Масштабирование', "05_scale_3d.png")

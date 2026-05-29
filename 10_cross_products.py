@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from plot_helpers import save_lesson_figure
 
 def visualize_cross_product():
     # Создаем два вектора в 3D
@@ -37,7 +38,8 @@ def visualize_cross_product():
     ax.text(1, 1, 3, f'Площадь = {area}', fontsize=12, bbox=dict(boxstyle="round", facecolor='wheat', alpha=0.9))
     
     plt.title('Векторное произведение: a × b = вектор, перпендикулярный a и b\nДлина = площади параллелограмма')
+    save_lesson_figure(fig, __file__, "10_cross_product.png")
     plt.show()
 
-# Запускаем визуализацию
-visualize_cross_product()
+if __name__ == "__main__":
+    visualize_cross_product()

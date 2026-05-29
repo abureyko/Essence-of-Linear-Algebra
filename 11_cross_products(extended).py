@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from plot_helpers import save_lesson_figure
 
 def ml_cross_product_demo():
     
@@ -27,6 +28,7 @@ def ml_cross_product_demo():
     ax.set_xlabel('X'); ax.set_ylabel('Y'); ax.set_zlabel('Z')
     ax.legend()
     plt.title('Векторное произведение в ML: нормаль к поверхности\n(Computer Vision)')
+    save_lesson_figure(fig, __file__, "11_cross_product_surface_normal.png")
     plt.show()
     
     print(f"edge1: {edge1}")
@@ -34,4 +36,5 @@ def ml_cross_product_demo():
     print(f"normal: {normal} (длина = {np.linalg.norm(normal)})")
     print("→ Эта нормаль используется в 3D графике, рендеринге, computer vision")
 
-ml_cross_product_demo()
+if __name__ == "__main__":
+    ml_cross_product_demo()

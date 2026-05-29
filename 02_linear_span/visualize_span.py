@@ -1,9 +1,17 @@
 from linear_combinations import linear_combination
+from pathlib import Path
+import sys
+
 import numpy as np
 import matplotlib.pyplot as plt
 
-def visualize_span(vec1, vec2, num_points=100):
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+from plot_helpers import save_lesson_figure
+
+
+def visualize_span(vec1, vec2, num_points=100, filename="02_visualize_span.png"):
     # 1. Генерируем случайные коэффициенты
+    np.random.seed(7)
     coefficents = np.random.uniform(-2,2,size=(num_points, 2))
     
     # 2. Для каждой пары коэффициентов вычисляем линейную комбинацию
@@ -35,12 +43,13 @@ def visualize_span(vec1, vec2, num_points=100):
     ax.axhline(y=0, color='k', linestyle='-', alpha=0.5)
     ax.axvline(x=0, color='k', linestyle='-', alpha=0.5)    
     ax.legend()
+    save_lesson_figure(fig, __file__, filename)
     plt.show()
 
 if __name__ == '__main__':
     print("Пример 1: Два непараллельных вектора (покрывают всю плоскость)")
-    visualize_span([2, 1], [1, 3])
+    visualize_span([2, 1], [1, 3], filename="02_span_plane.png")
     print("Пример 2: Два параллельных вектора (покрывают только линию)")
-    visualize_span([1, 2], [2, 4])
+    visualize_span([1, 2], [2, 4], filename="02_span_line.png")
     print("Пример 3: Базисные векторы")
-    visualize_span([1, 0], [0, 1])
+    visualize_span([1, 0], [0, 1], filename="02_span_basis.png")
