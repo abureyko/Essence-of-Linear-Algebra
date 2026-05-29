@@ -77,7 +77,7 @@
 
 ![Скалярное произведение и проекция](assets/plots/09_dot_product.png)
 
-![Векторное произведение](assets/plots/10_cross_product.png)
+![Преобразований между разными размерностями](assets/plots/08_non_square_matrices.png)
 
 ![Смена базиса](assets/plots/13_change_of_basis.png)
 
